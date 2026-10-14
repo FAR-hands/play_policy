@@ -1,0 +1,14 @@
+# Python dependencies on top of PyTorch (+ Isaac Sim 5.1 / Isaac Lab 2.3.2 for simulation).
+# Versions are the ones the release was tested with.
+numpy>=1.26,<2          # Isaac Sim 5.1 ships numpy 1.26
+scipy>=1.11             # tested 1.15.3
+matplotlib>=3.8         # tested 3.10.3
+tensorboard>=2.15       # tested 2.21.0
+pyyaml>=6.0
+# teleoperation / visualization
+pyzmq>=25               # Manus glove client (tested 27.1.0)
+dex_retargeting==0.4.6  # glove -> hand retargeting
+yourdfpy>=0.0.56        # tested 0.0.60
+viser==1.0.30           # browser 3-D views (teleop, replay)
+trimesh>=4.0            # tested 4.5.1
+pillow>=10.0

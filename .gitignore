@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+# downloaded / generated artifacts
+checkpoints/*.pt
+data/
+runs/
+logs/
+quickstart_out/
+# proprietary MANUS SDK (download separately, see docs/TELEOP.md) and build trees
+manus/ManusSDK/
+manus/server/build/

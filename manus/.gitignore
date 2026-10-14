@@ -1,0 +1,4 @@
+# proprietary MANUS SDK (download it yourself, see README.md) and build outputs
+ManusSDK/
+server/build/
+*.egg-info/

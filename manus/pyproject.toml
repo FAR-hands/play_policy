@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manus-glove"
+version = "0.1.0"
+description = "ZMQ-based Python client for Manus glove data"
+requires-python = ">=3.8"
+dependencies = [
+    "pyzmq>=25.0.0",
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+viz = [
+    "open3d>=0.17.0",
+    "viser>=0.2.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["manus_glove*"]

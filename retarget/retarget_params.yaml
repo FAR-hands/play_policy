@@ -1,0 +1,17 @@
+scaling: 1.0
+finger_scales:
+  thumb: 1.0
+  index: 1.0
+  middle: 1.0
+  ring: 1.0
+  pinky: 1.15
+dip_coupling: 0.66
+ab_correct_deg: -14.0
+thumb_mode: joint
+thumb_ema: 0.18
+thumb_joint_weight: 0.76
+thumb_invert:
+  CMC_AA: true
+  CMC_FE: true
+  MCP_FE: false
+  IP: false
