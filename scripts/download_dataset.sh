@@ -13,8 +13,10 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(dirname "$HERE")"
-# TODO(authors): point this at the public dataset location before release.
-DSP_DATA_URL="${DSP_DATA_URL:-https://huggingface.co/datasets/<ORG>/dsp-sim-dataset/resolve/main}"
+# Files are assets of the v1.0 GitHub release of FAR-hands/play_policy. While that repo is
+# private, plain downloads fail: run `gh release download v1.0 -R FAR-hands/play_policy -D <dir>`
+# and pass --from <dir>.
+DSP_DATA_URL="${DSP_DATA_URL:-https://github.com/FAR-hands/play_policy/releases/download/v1.0}"
 TAR_NAME="dsp_sim_dataset_v1.tar"
 DS_NAME="dsp_sim_dataset"
 DEST="$REPO/data"
@@ -49,11 +51,6 @@ fetch() {       # fetch <url> <out>
 
 TAR=""; SUMS=""
 if [[ -z "$FROM" ]]; then
-  if [[ "$DSP_DATA_URL" == *"<ORG>"* ]]; then
-    echo "[download_dataset] DSP_DATA_URL is still the placeholder ($DSP_DATA_URL)." >&2
-    echo "[download_dataset] set DSP_DATA_URL=<base url> or use --from <local tar|dir>." >&2
-    exit 1
-  fi
   echo "[download_dataset] downloading $DSP_DATA_URL/$TAR_NAME -> $DEST"
   fetch "$DSP_DATA_URL/SHA256SUMS" "$DEST/SHA256SUMS"
   fetch "$DSP_DATA_URL/$TAR_NAME" "$DEST/$TAR_NAME"

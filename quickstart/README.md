@@ -18,6 +18,8 @@ The two checkpoints:
 
 ## 0. Get the checkpoints
 
+Both files are assets of the repository's [v1.0 release](https://github.com/FAR-hands/play_policy/releases/tag/v1.0).
+
 ```bash
 quickstart/download_checkpoints.sh             # -> checkpoints/, sha256-verified
 # or, with the files already on disk:

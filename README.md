@@ -22,6 +22,9 @@ need only PyTorch.
 
 ## 1. Quick start: validate play policy + world model + MPC
 
+The checkpoints and the dataset are assets of this repository's [v1.0 release](https://github.com/FAR-hands/play_policy/releases/tag/v1.0); the download
+scripts below fetch them and verify their sha256.
+
 ```bash
 bash quickstart/download_checkpoints.sh      # -> checkpoints/dsp_sim_{play_policy,world_model}.pt
 python quickstart/check_inference.py         # one MPC replan, compared against reference values

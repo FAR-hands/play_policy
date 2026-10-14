@@ -14,8 +14,10 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEST="${DEST:-$HERE/../checkpoints}"
-# TODO(authors): set the public location of the release files.
-URL="${DSP_CKPT_URL:-https://huggingface.co/<ORG>/dsp-sim/resolve/main}"
+# Files are assets of the v1.0 GitHub release of FAR-hands/play_policy. While that repo is
+# private, plain downloads fail: run `gh release download v1.0 -R FAR-hands/play_policy -D <dir>`
+# and pass --from <dir>.
+URL="${DSP_CKPT_URL:-https://github.com/FAR-hands/play_policy/releases/download/v1.0}"
 FILES=(dsp_sim_play_policy.pt dsp_sim_world_model.pt)
 
 FROM=""; LINK=0
@@ -36,7 +38,6 @@ for f in "${FILES[@]}"; do
     [ -f "$src" ] || { echo "missing $src" >&2; exit 1; }
     if [ $LINK = 1 ]; then ln -sf "$src" "$DEST/$f"; else cp "$src" "$DEST/$f"; fi
   elif [ ! -f "$DEST/$f" ]; then
-    case "$URL" in *"<ORG>"*) echo "DSP_CKPT_URL is not set (placeholder: $URL)" >&2; exit 1 ;; esac
     echo "[download] $URL/$f"
     if command -v wget >/dev/null; then wget -q --show-progress -O "$DEST/$f.part" "$URL/$f"
     else curl -fL --progress-bar -o "$DEST/$f.part" "$URL/$f"; fi
