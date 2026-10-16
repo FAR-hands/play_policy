@@ -91,20 +91,17 @@ scripts/           pipeline.sh, teleop / replay launchers, dataset download
 docs/              install, dataset, pipeline and teleoperation guides
 ```
 
-## A note on simulated time
-
-Each control frame advances the physics by **1/240 s** (3 substeps of 1/720 s), while frames
-are labelled at 60 Hz. The slow-motion factor made glove teleoperation controllable. "Hours"
-of data and frame budgets in this repository and in the paper are 60 Hz label time
-(5 h = 1,080,000 frames); the corresponding simulated physical time is 4x shorter.
-
 ## Citation
 
 ```bibtex
-@inproceedings{dsp2026,
-  title  = {Dexterity from Supervised Play},
-  author = {Anonymous},
-  year   = {2026}
+@misc{dsp2026,
+      title={Dexterity from Supervised Play}, 
+      author={Botao He and Yiming Dou and Yiannis Aloimonos and Jitendra Malik and Akash Sharma and Ruoshi Liu},
+      year={2026},
+      eprint={2610.22340},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2610.22340}, 
 }
 ```
 
